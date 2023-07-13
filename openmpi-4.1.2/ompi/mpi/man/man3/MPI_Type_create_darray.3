@@ -19,6 +19,33 @@ int MPI_Type_create_darray(int \fIsize\fP, int \fIrank\fP, int \fIndims\fP,
 	int \fIorder\fP, MPI_Datatype \fIoldtype\fP, MPI_Datatype \fI*newtype\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_TYPE_CREATE_DARRAY(\fISIZE, RANK, NDIMS, ARRAY_OF_GSIZES,
+	ARRAY_OF_DISTRIBS, ARRAY_OF_DARGS, ARRAY_OF_PSIZES, ORDER,
+	OLDTYPE, NEWTYPE, IERROR\fP)
+
+	INTEGER	\fISIZE, RANK, NDIMS, ARRAY_OF_GSIZES(*), ARRAY_OF_DISTRIBS(*),
+		ARRAY_OF_DARGS(*), ARRAY_OF_PSIZES(*), ORDER, OLDTYPE,
+		NEWTYPE, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Type_create_darray(\fIsize\fP, \fIrank\fP, \fIndims\fP, \fIarray_of_gsizes\fP,
+	\fIarray_of_distribs\fP, \fIarray_of_dargs\fP, \fIarray_of_psizes\fP, \fIorder,\fP
+		\fIoldtype\fP, \fInewtype\fP, \fIierror\fP)
+	INTEGER, INTENT(IN) :: \fIsize\fP, \fIrank\fP, \fIndims\fP, \fIarray_of_gsizes(ndims),\fP
+	\fIarray_of_distribs(ndims)\fP, \fIarray_of_dargs(ndims),\fP
+	\fIarray_of_psizes(ndims)\fP, \fIorder\fP
+	TYPE(MPI_Datatype), INTENT(IN) :: \fIoldtype\fP
+	TYPE(MPI_Datatype), INTENT(OUT) :: \fInewtype\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

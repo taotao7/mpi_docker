@@ -17,6 +17,17 @@ int MPI_Type_hindexed(int \fIcount\fP, int\fI *array_of_blocklengths\fP,
 	MPI_Datatype\fI *newtype\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+INCLUDE 'mpif.h'
+MPI_TYPE_HINDEXED(\fICOUNT, ARRAY_OF_BLOCKLENGTHS,
+		ARRAY_OF_DISPLACEMENTS, OLDTYPE, NEWTYPE, IERROR\fP)
+	INTEGER	\fICOUNT, ARRAY_OF_BLOCKLENGTHS(*)\fP
+	INTEGER	\fIARRAY_OF_DISPLACEMENTS(*), OLDTYPE, NEWTYPE\fP
+	INTEGER	\fIIERROR\fP
+
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

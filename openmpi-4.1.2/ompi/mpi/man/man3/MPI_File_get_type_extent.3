@@ -19,6 +19,25 @@ int MPI_File_get_type_extent(MPI_File \fIfh\fP, MPI_Datatype
 	\fIdatatype\fP, MPI_Aint \fI*extent\fP)
 
 .fi
+.SH Fortran Syntax (see FORTRAN 77 NOTES)
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_GET_TYPE_EXTENT(\fIFH\fP, \fIDATATYPE\fP, \fIEXTENT\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, DATATYPE, IERROR\fP
+	INTEGER(KIND=MPI_ADDRESS_KIND)	\fIEXTENT\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_get_type_extent(\fIfh\fP, \fIdatatype\fP, \fIextent\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	TYPE(MPI_Datatype), INTENT(IN) :: \fIdatatype\fP
+	INTEGER(KIND=MPI_ADDRESS_KIND), INTENT(OUT) :: \fIextent\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

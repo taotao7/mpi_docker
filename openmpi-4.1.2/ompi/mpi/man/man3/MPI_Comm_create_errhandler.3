@@ -16,6 +16,24 @@ int MPI_Comm_create_errhandler(MPI_Comm_errhandler_function \fI*function\fP,
 	MPI_Errhandler *\fIerrhandler\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_COMM_CREATE_ERRHANDLER(\fIFUNCTION, ERRHANDLER, IERROR\fP)
+	EXTERNAL	\fIFUNCTION\fP
+	INTEGER	\fIERRHANDLER, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Comm_create_errhandler(\fIcomm_errhandler_fn\fP, \fIerrhandler\fP, \fIierror\fP)
+	PROCEDURE(MPI_Comm_errhandler_function) :: \fIcomm_errhandler_fn\fP
+	TYPE(MPI_Errhandler), INTENT(OUT) :: \fIerrhandler\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH DEPRECATED TYPE NAME NOTE
 .ft R
 MPI-2.2 deprecated the MPI_Comm_errhandler_fn and

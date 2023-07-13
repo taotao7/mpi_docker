@@ -16,6 +16,24 @@ int MPI_Get_count(const MPI_Status *\fIstatus\fP, MPI_Datatype\fI datatype\fP,
 	int\fI *count\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_GET_COUNT(\fISTATUS, DATATYPE, COUNT, IERROR\fP)
+	INTEGER	\fISTATUS(MPI_STATUS_SIZE), DATATYPE, COUNT, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Get_count(\fIstatus\fP, \fIdatatype\fP, \fIcount\fP, \fIierror\fP)
+	TYPE(MPI_Status), INTENT(IN) :: \fIstatus\fP
+	TYPE(MPI_Datatype), INTENT(IN) :: \fIdatatype\fP
+	INTEGER, INTENT(OUT) :: \fIcount\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

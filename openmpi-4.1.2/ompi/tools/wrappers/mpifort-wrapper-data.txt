@@ -11,16 +11,16 @@ version=4.1.2
 language=Fortran
 compiler_env=FC
 compiler_flags_env=FCFLAGS
-compiler=
+compiler=gfortran
 preprocessor_flags=
-compiler_flags= 
-linker_flags=     
+compiler_flags=  -I${libdir}
+linker_flags=   -Wl,-rpath -Wl,@{libdir}  -Wl,--enable-new-dtags
 # Note that per https://svn.open-mpi.org/trac/ompi/ticket/3422, we
 # intentionally only link in the MPI libraries (ORTE, OPAL, etc. are
 # pulled in implicitly) because we intend MPI applications to only use
 # the MPI API.
-libs=  -lmpi_mpifh -lmpi
-libs_static=  -lmpi_mpifh -lmpi -lopen-rte -lopen-pal  -lhwloc -levent_core -levent_pthreads -lm  -lz
+libs=-lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi
+libs_static=-lmpi_usempif08 -lmpi_usempi_ignore_tkr -lmpi_mpifh -lmpi -lopen-rte -lopen-pal  -lm  -lz
 dyn_lib_file=libmpi.so
 static_lib_file=libmpi.a
 required_file=

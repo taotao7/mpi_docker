@@ -18,6 +18,22 @@
 int MPI_File_sync(MPI_File \fIfh\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_SYNC(\fIFH\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_sync(\fIfh\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1i

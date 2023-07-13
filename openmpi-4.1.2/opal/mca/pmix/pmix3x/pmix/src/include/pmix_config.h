@@ -138,7 +138,7 @@
 #define HAVE_LONG_LONG 1
 
 /* Define to 1 if you have the <ltdl.h> header file. */
-#define HAVE_LTDL_H 1
+/* #undef HAVE_LTDL_H */
 
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
@@ -530,25 +530,25 @@
 #define PMIX_BUILD_PLATFORM_COMPILER_FAMILYNAME GNU
 
 /* The compiler $lower which PMIx was built with */
-#define PMIX_BUILD_PLATFORM_COMPILER_VERSION 852225
+#define PMIX_BUILD_PLATFORM_COMPILER_VERSION 786944
 
 /* The compiler $lower which PMIx was built with */
-#define PMIX_BUILD_PLATFORM_COMPILER_VERSION_STR 13.1.1
+#define PMIX_BUILD_PLATFORM_COMPILER_VERSION_STR 12.2.0
 
 /* OMPI underlying C compiler */
 #define PMIX_CC "gcc"
 
 /* Capture the configure cmd line */
-#define PMIX_CONFIGURE_CLI " \'--disable-man-pages\' \'--disable-debug\' \'--with-pmix-symbol-rename=OPAL_MCA_PMIX3X_\' \'--enable-embedded-mode\' \'--disable-pmix-timing\' \'--without-tests-examples\' \'--disable-pmix-binaries\' \'--disable-pmix-backward-compatibility\' \'--disable-visibility\' \'--enable-embedded-libevent\' '--with-libevent-header=\"opal/mca/event/external/external.h\"' \'--enable-embedded-hwloc\' '--with-hwloc-header=\"opal/mca/hwloc/external/external.h\"' \'CFLAGS=-O3 -DNDEBUG  \' \'CPPFLAGS=-I/home/vire/project/mpi/openmpi-4.1.2 -I/home/vire/project/mpi/openmpi-4.1.2 -I/home/vire/project/mpi/openmpi-4.1.2/opal/include -I/home/vire/project/mpi/openmpi-4.1.2/opal/include    \' \'--cache-file=/dev/null\' \'--srcdir=.\' \'--disable-option-checking\'"
+#define PMIX_CONFIGURE_CLI " \'--disable-man-pages\' \'--disable-debug\' \'--with-pmix-symbol-rename=OPAL_MCA_PMIX3X_\' \'--enable-embedded-mode\' \'--disable-pmix-timing\' \'--without-tests-examples\' \'--disable-pmix-binaries\' \'--disable-pmix-backward-compatibility\' \'--disable-visibility\' \'--enable-embedded-libevent\' '--with-libevent-header=\"opal/mca/event/libevent2022/libevent2022.h\"' \'--enable-embedded-hwloc\' '--with-hwloc-header=\"opal/mca/hwloc/hwloc201/hwloc201.h\"' \'CFLAGS=-O3 -DNDEBUG  \' \'CPPFLAGS=-I/home/vire/cloud/openmpi-4.1.2 -I/home/vire/cloud/openmpi-4.1.2 -I/home/vire/cloud/openmpi-4.1.2/opal/include -I/home/vire/cloud/openmpi-4.1.2/opal/include -I/home/vire/cloud/openmpi-4.1.2/opal/mca/event/libevent2022/libevent -I/home/vire/cloud/openmpi-4.1.2/opal/mca/event/libevent2022/libevent/include -I/home/vire/cloud/openmpi-4.1.2/opal/mca/hwloc/hwloc201/hwloc/include  \' \'--cache-file=/dev/null\' \'--srcdir=.\' \'--disable-option-checking\'"
 
 /* Date when PMIx was built */
-#define PMIX_CONFIGURE_DATE "2023-07-11T16:49:03"
+#define PMIX_CONFIGURE_DATE "2023-07-12T09:15:45"
 
 /* Hostname where PMIx was built */
-#define PMIX_CONFIGURE_HOST "vire-pc"
+#define PMIX_CONFIGURE_HOST "vire"
 
 /* User who built PMIx */
-#define PMIX_CONFIGURE_USER "root"
+#define PMIX_CONFIGURE_USER "vire"
 
 /* Whether C compiler supports GCC style inline assembly */
 #define PMIX_C_GCC_INLINE_ASSEMBLY 1
@@ -596,10 +596,10 @@
 #define PMIX_ENABLE_TIMING 0
 
 /* Location of event2/thread.h */
-#define PMIX_EVENT2_THREAD_HEADER "opal/mca/event/external/external.h"
+#define PMIX_EVENT2_THREAD_HEADER "opal/mca/event/libevent2022/libevent2022.h"
 
 /* Location of event.h */
-#define PMIX_EVENT_HEADER "opal/mca/event/external/external.h"
+#define PMIX_EVENT_HEADER "opal/mca/event/libevent2022/libevent2022.h"
 
 /* Whether or not we have apple */
 #define PMIX_HAVE_APPLE 0
@@ -758,7 +758,7 @@
 #define PMIX_HAVE_ZLIB 1
 
 /* Location of hwloc.h */
-#define PMIX_HWLOC_HEADER "opal/mca/hwloc/external/external.h"
+#define PMIX_HWLOC_HEADER "opal/mca/hwloc/hwloc201/hwloc201.h"
 
 /* ident string for PMIX */
 #define PMIX_IDENT_STRING ""
@@ -783,10 +783,10 @@
 #define PMIX_NO_LIB_DESTRUCTOR 0
 
 /* package/branding string for PMIx */
-#define PMIX_PACKAGE_STRING "PMIx root@vire-pc Distribution"
+#define PMIX_PACKAGE_STRING "PMIx vire@vire Distribution"
 
 /* Whether we have lt_dladvise or not */
-#define PMIX_PDL_PLIBLTDL_HAVE_LT_DLADVISE 1
+#define PMIX_PDL_PLIBLTDL_HAVE_LT_DLADVISE 0
 
 /* Whether r notation is used for ppc registers */
 /* #undef PMIX_POWERPC_R_REGISTERS */
@@ -896,7 +896,7 @@
 
 /* Define to 1 if `lex' declares `yytext' as a `char *' by default, not a
    `char[]'. */
-#define YYTEXT_POINTER 1
+/* #undef YYTEXT_POINTER */
 
 /* Enable GNU extensions on systems that have them.  */
 #ifndef _GNU_SOURCE

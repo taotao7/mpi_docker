@@ -19,6 +19,23 @@
 int MPI_File_get_info(MPI_File \fIfh\fP, MPI_Info \fI*info_used\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_GET_INFO(\fIFH\fP, \fIINFO_USED\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, INFO_USED, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_get_info(\fIfh\fP, \fIinfo_used\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	TYPE(MPI_Info), INTENT(OUT) :: \fIinfo_used\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1i

@@ -15,6 +15,23 @@
 int MPI_Info_get_nkeys(MPI_Info \fIinfo\fP, int \fI*nkeys\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_INFO_GET_NKEYS(\fIINFO, NKEYS, IERROR\fP)
+	INTEGER		\fIINFO, NKEYS, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Info_get_nkeys(\fIinfo\fP, \fInkeys\fP, \fIierror\fP)
+	TYPE(MPI_Info), INTENT(IN) :: \fIinfo\fP
+	INTEGER, INTENT(OUT) :: \fInkeys\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1i

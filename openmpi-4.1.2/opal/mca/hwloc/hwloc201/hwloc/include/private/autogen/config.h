@@ -212,7 +212,7 @@
 /* #undef HAVE_LIBLGRP */
 
 /* Define to 1 if you have the <libudev.h> header file. */
-#define HAVE_LIBUDEV_H 1
+/* #undef HAVE_LIBUDEV_H */
 
 /* Define to 1 if you have the <locale.h> header file. */
 /* #undef HAVE_LOCALE_H */
@@ -380,13 +380,13 @@
 /* #undef HAVE_WCHAR_T */
 
 /* Define to 1 if you have the <X11/keysym.h> header file. */
-#define HAVE_X11_KEYSYM_H 1
+/* #undef HAVE_X11_KEYSYM_H */
 
 /* Define to 1 if you have the <X11/Xlib.h> header file. */
-#define HAVE_X11_XLIB_H 1
+/* #undef HAVE_X11_XLIB_H */
 
 /* Define to 1 if you have the <X11/Xutil.h> header file. */
-#define HAVE_X11_XUTIL_H 1
+/* #undef HAVE_X11_XUTIL_H */
 
 /* Define to 1 if you have the <xlocale.h> header file. */
 /* #undef HAVE_XLOCALE_H */
@@ -530,7 +530,7 @@
 /* #undef HWLOC_HAVE_LIBTERMCAP */
 
 /* Define to 1 if you have libudev. */
-#define HWLOC_HAVE_LIBUDEV 1
+/* #undef HWLOC_HAVE_LIBUDEV */
 
 /* Define to 1 if you have the `libxml2' library. */
 /* #undef HWLOC_HAVE_LIBXML2 */
@@ -575,7 +575,7 @@
 /* #undef HWLOC_HAVE_WINDOWS_H */
 
 /* Define to 1 if X11 headers including Xutil.h and keysym.h are available. */
-#define HWLOC_HAVE_X11_KEYSYM 1
+/* #undef HWLOC_HAVE_X11_KEYSYM */
 
 /* Define to 1 if you have x86 cpuid */
 #define HWLOC_HAVE_X86_CPUID 1
@@ -602,13 +602,13 @@
 /* #undef HWLOC_SOLARIS_SYS */
 
 /* The hwloc symbol prefix */
-#define HWLOC_SYM_PREFIX hwloc_
+#define HWLOC_SYM_PREFIX opal_hwloc201_
 
 /* The hwloc symbol prefix in all caps */
-#define HWLOC_SYM_PREFIX_CAPS HWLOC_
+#define HWLOC_SYM_PREFIX_CAPS OPAL_HWLOC201_
 
 /* Whether we need to re-define all the hwloc public symbols or not */
-#define HWLOC_SYM_TRANSFORM 0
+#define HWLOC_SYM_TRANSFORM 1
 
 /* Define to 1 on unsupported systems */
 /* #undef HWLOC_UNSUPPORTED_SYS */
@@ -700,7 +700,7 @@
 /* #undef VERSION */
 
 /* Define to 1 if the X Window System is missing or not being used. */
-/* #undef X_DISPLAY_MISSING */
+#define X_DISPLAY_MISSING 1
 
 /* Are we building for HP-UX? */
 #define _HPUX_SOURCE 1

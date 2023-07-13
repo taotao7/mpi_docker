@@ -20,6 +20,29 @@ int MPI_File_set_view(MPI_File \fIfh\fP, MPI_Offset \fIdisp\fP,
 	const char \fI*datarep\fP, MPI_Info \fIinfo\fP)
 
 .fi
+.SH Fortran Syntax (see FORTRAN 77 NOTES)
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_SET_VIEW(\fIFH\fP, \fIDISP\fP, \fIETYPE\fP,
+	\fIFILETYPE\fP, \fIDATAREP\fP, \fIINFO\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, ETYPE, FILETYPE, INFO, IERROR\fP
+	CHARACTER*(*)	\fIDATAREP\fP
+	INTEGER(KIND=MPI_OFFSET_KIND)	\fIDISP\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_set_view(\fIfh\fP, \fIdisp\fP, \fIetype\fP, \fIfiletype\fP, \fIdatarep\fP, \fIinfo\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	INTEGER(KIND=MPI_OFFSET_KIND), INTENT(IN) :: \fIdisp\fP
+	TYPE(MPI_Datatype), INTENT(IN) :: \fIetype\fP, \fIfiletype\fP
+	CHARACTER(LEN=*), INTENT(IN) :: \fIdatarep\fP
+	TYPE(MPI_Info), INTENT(IN) :: \fIinfo\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT/OUTPUT PARAMETER
 .ft R
 .TP 1i

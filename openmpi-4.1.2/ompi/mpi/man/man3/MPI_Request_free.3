@@ -15,6 +15,21 @@
 int MPI_Request_free(MPI_Request *request)
 
 .fi
+.SH Fortran Syntax
+.nf
+\s-1INCLUDE\s0 'mpif.h'
+MPI_REQUEST_FREE(REQUEST, IERROR)
+	INTEGER	REQUEST, IERROR
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Request_free(\fIrequest\fP, \fIierror\fP)
+	TYPE(MPI_Request), INTENT(INOUT) :: \fIrequest\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT/OUTPUT PARAMETER
 .ft R
 .TP 1i

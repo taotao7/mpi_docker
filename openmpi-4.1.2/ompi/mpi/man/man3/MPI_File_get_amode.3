@@ -18,6 +18,23 @@
 int MPI_File_get_amode(MPI_File \fIfh\fP, int \fI*amode\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_GET_AMODE(\fIFH\fP, \fIAMODE\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, AMODE, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_get_amode(\fIfh\fP, \fIamode\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	INTEGER, INTENT(OUT) :: \fIamode\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1i

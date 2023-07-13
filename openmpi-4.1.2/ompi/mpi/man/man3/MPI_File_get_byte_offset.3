@@ -19,6 +19,25 @@ int MPI_File_get_byte_offset(MPI_File \fIfh\fP, MPI_Offset \fIoffset\fP,
 	MPI_Offset \fI*disp\fP)
 
 .fi
+.SH Fortran Syntax (see FORTRAN 77 NOTES)
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_GET_BYTE_OFFSET(\fIFH\fP, \fIOFFSET\fP, \fIDISP\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, IERROR\fP
+	INTEGER(KIND=MPI_OFFSET_KIND)	\fIOFFSET, DISP\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_get_byte_offset(\fIfh\fP, \fIoffset\fP, \fIdisp\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	INTEGER(KIND=MPI_OFFSET_KIND), INTENT(IN) :: \fIoffset\fP
+	INTEGER(KIND=MPI_OFFSET_KIND), INTENT(OUT) :: \fIdisp\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

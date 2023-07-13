@@ -1,1 +1,3 @@
-# dummy
+mpiext_pcollreq_mpifh.lo: mpiext_pcollreq_mpifh.c \
+ /usr/include/stdc-predef.h
+/usr/include/stdc-predef.h:

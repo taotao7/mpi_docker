@@ -16,6 +16,15 @@ int MPI_Keyval_create(MPI_Copy_function *\fIcopy_fn\fP,
 	MPI_Delete_function *\fIdelete_fn\fP, int *\fIkeyval\fP, void *\fIextra_state\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+INCLUDE 'mpif.h'
+MPI_KEYVAL_CREATE(\fICOPY_FN, DELETE_FN, KEYVAL, EXTRA_STATE, IERROR\fP)
+	EXTERNAL	\fICOPY_FN, DELETE_FN\fP
+	INTEGER	\fIKEYVAL, EXTRA_STATE, IERROR\fP
+
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

@@ -16,6 +16,15 @@ int MPI_Type_hvector(int \fIcount\fP, int\fI blocklength\fP, MPI_Aint\fI stride\
 	MPI_Datatype\fI oldtype\fP, MPI_Datatype\fI *newtype\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+INCLUDE 'mpif.h'
+MPI_TYPE_HVECTOR(\fICOUNT, BLOCKLENGTH, STRIDE, OLDTYPE, NEWTYPE,
+		IERROR\fP)
+	INTEGER	\fICOUNT, BLOCKLENGTH, STRIDE, OLDTYPE\fP
+	INTEGER	\fINEWTYPE, IERROR\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

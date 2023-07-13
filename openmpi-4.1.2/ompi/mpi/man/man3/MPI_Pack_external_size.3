@@ -19,6 +19,28 @@ int MPI_Pack_external_size(char *\fIdatarep\fP, int \fIincount\fP,
 	MPI_Datatype \fIdatatype\fP, MPI_Aint *\fIsize\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_PACK_EXTERNAL_SIZE(\fIDATAREP, INCOUNT, DATATYPE, SIZE, IERROR\fP)
+
+	INTEGER		\fIINCOUNT, DATATYPE, IERROR\fP
+	INTEGER(KIND=MPI_ADDRESS_KIND) \fISIZE\fP
+	CHARACTER*(*)	\fIDATAREP\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Pack_external_size(\fIdatarep\fP, \fIincount\fP, \fIdatatype\fP, \fIsize\fP, \fIierror\fP)
+	TYPE(MPI_Datatype), INTENT(IN) :: \fIdatatype\fP
+	INTEGER, INTENT(IN) :: \fIincount\fP
+	CHARACTER(LEN=*), INTENT(IN) :: \fIdatarep\fP
+	INTEGER(KIND=MPI_ADDRESS_KIND), INTENT(OUT) :: \fIsize\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i

@@ -18,6 +18,23 @@ with \fIerrorclass\fP
 int MPI_Add_error_code(int \fIerrorclass\fP, int *\fIerrorcode\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_ADD_ERROR_CODE(\fIERRORCLASS, ERRORCODE, IERROR\fP)
+	INTEGER \fI ERRORCLASS, ERRORCODE, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_Add_error_code(\fIerrorclass\fP, \fIerrorcode\fP, \fIierror\fP)
+	INTEGER, INTENT(IN) :: \fIerrorclass\fP
+	INTEGER, INTENT(OUT) :: \fIerrorcode\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1.4i

@@ -18,6 +18,24 @@
 int MPI_File_preallocate(MPI_File \fIfh\fP, MPI_Offset \fIsize\fP)
 
 .fi
+.SH Fortran Syntax (see FORTRAN 77 NOTES)
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_PREALLOCATE(\fIFH\fP, \fISIZE\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, IERROR\fP
+	INTEGER(KIND=MPI_OFFSET_KIND)	\fISIZE\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_preallocate(\fIfh\fP, \fIsize\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	INTEGER(KIND=MPI_OFFSET_KIND), INTENT(IN) :: \fIsize\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT/OUTPUT PARAMETER
 .ft R
 .TP 1i

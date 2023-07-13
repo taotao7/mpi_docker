@@ -16,6 +16,15 @@ int MPI_Errhandler_create(MPI_Handler_function *\fIfunction\fP,
 	MPI_Errhandler *\fIerrhandler\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+INCLUDE 'mpif.h'
+MPI_ERRHANDLER_CREATE(\fIFUNCTION, ERRHANDLER, IERROR\fP)
+	EXTERNAL	\fIFUNCTION\fP
+	INTEGER	\fIERRHANDLER, IERROR\fP
+
+
+.fi
 .SH INPUT PARAMETER
 .ft R
 .TP 1i

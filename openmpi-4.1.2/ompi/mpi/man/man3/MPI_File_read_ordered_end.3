@@ -19,6 +19,25 @@ int MPI_File_read_ordered_end(MPI_File \fIfh\fP, void \fI*buf\fP,
 	MPI_Status \fI*status\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_READ_ORDERED_END(\fIFH\fP, \fIBUF\fP, \fISTATUS\fP, \fIIERROR\fP)
+	<type>	\fIBUF(*)\fP
+	INTEGER	\fIFH, STATUS(MPI_STATUS_SIZE), IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_read_ordered_end(\fIfh\fP, \fIbuf\fP, \fIstatus\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	TYPE(*), DIMENSION(..), ASYNCHRONOUS :: \fIbuf\fP
+	TYPE(MPI_Status) :: \fIstatus\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT/OUTPUT PARAMETER
 .ft R
 .TP 1i

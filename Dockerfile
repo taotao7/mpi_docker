@@ -8,9 +8,9 @@ LABEL vendor="vire" \
 ENV OMPI_ALLOW_RUN_AS_ROOT 1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM 1
 
-RUN mkdir /root/cloud
+RUN mkdir /vire/cloud
 
-WORKDIR /root
+WORKDIR /vire
 
 RUN apt-get update && \
   apt-get upgrade -yy && \
@@ -24,10 +24,17 @@ RUN apt-get update && \
   nfs-common\
   rpcbind\
   openmpi-bin=4.1.2-2ubuntu1\
+  zlib1g-dev \
+  zlib1g \
+  gfortran \
+  gosu \
+  libblas-dev \
+  bzip2 \
   libopenmpi-dev=4.1.2-2ubuntu1 && \
   apt-get clean && \
   apt-get autoclean && \
   echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
+  echo "vire:zxczxc" |chpasswd && \
   echo "root:zxczxc" | chpasswd && \
   service ssh start && \
   service rpcbind start  

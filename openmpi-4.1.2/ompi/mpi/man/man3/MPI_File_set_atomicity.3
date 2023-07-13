@@ -18,6 +18,23 @@
 int MPI_File_set_atomicity(MPI_File \fIfh\fP, int \fIflag\fP)
 
 .fi
+.SH Fortran Syntax
+.nf
+USE MPI
+! or the older form: INCLUDE 'mpif.h'
+MPI_FILE_SET_ATOMICITY(\fIFH\fP, \fIFLAG\fP, \fIIERROR\fP)
+	INTEGER	\fIFH, FLAG, IERROR\fP
+
+.fi
+.SH Fortran 2008 Syntax
+.nf
+USE mpi_f08
+MPI_File_set_atomicity(\fIfh\fP, \fIflag\fP, \fIierror\fP)
+	TYPE(MPI_File), INTENT(IN) :: \fIfh\fP
+	LOGICAL, INTENT(IN) :: \fIflag\fP
+	INTEGER, OPTIONAL, INTENT(OUT) :: \fIierror\fP
+
+.fi
 .SH INPUT PARAMETERS
 .ft R
 .TP 1i
