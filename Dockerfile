@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:22.04
 
 LABEL vendor="vire" \
   version="test"  \
@@ -8,9 +8,11 @@ LABEL vendor="vire" \
 ENV OMPI_ALLOW_RUN_AS_ROOT 1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM 1
 
-RUN mkdir /vire/cloud
 
-WORKDIR /vire
+RUN  useradd -m vire && \
+  mkdir /home/vire/cloud 
+
+WORKDIR /home/vire
 
 RUN apt-get update && \
   apt-get upgrade -yy && \
@@ -20,8 +22,9 @@ RUN apt-get update && \
   make \
   cmake \
   vim \
-  openssh-server\
-  nfs-common\
+  openssh-server \
+  dialog \
+  nfs-common \
   rpcbind\
   openmpi-bin=4.1.2-2ubuntu1\
   zlib1g-dev \
@@ -39,8 +42,12 @@ RUN apt-get update && \
   service ssh start && \
   service rpcbind start  
 
+CMD [ "mount","-t","nfs", "${NFS_HOST}:${NFS_DIR}","/home/vire/cloud" ]
 
-# ADD ./openmpi.tar.gz /root
+
+
+#COPY ./example /home/vire/cloud
+#COPY ./hostfile /home/vire/cloud
 
 # RUN   cd openmpi-4.1.5 && \
 #   ./configure --prefix=/usr/local && make install -j &&\
