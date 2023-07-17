@@ -5,12 +5,15 @@ LABEL vendor="vire" \
   description="this is vire mpi simulation image" \
   maintainer="taotao7"
 
-ENV OMPI_ALLOW_RUN_AS_ROOT 1
-ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM 1
+
+ENV OMPI_ALLOW_RUN_AS_ROOT=1
+ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
 
 RUN  useradd -m vire && \
-  mkdir /home/vire/cloud 
+  mkdir /home/vire/cloud && \
+  mkdir /home/vire/.ssh
+
 
 WORKDIR /home/vire
 
@@ -23,6 +26,7 @@ RUN apt-get update && \
   cmake \
   vim \
   openssh-server \
+  sshpass \
   dialog \
   nfs-common \
   rpcbind\
@@ -37,12 +41,9 @@ RUN apt-get update && \
   apt-get clean && \
   apt-get autoclean && \
   echo "PermitRootLogin yes" >> /etc/ssh/sshd_config && \
-  echo "vire:zxczxc" |chpasswd && \
-  echo "root:zxczxc" | chpasswd && \
-  service ssh start && \
-  service rpcbind start  
+  echo "vire:zxczxc" | chpasswd && \
+  echo "root:zxczxc" | chpasswd  
 
-CMD [ "mount","-t","nfs", "${NFS_HOST}:${NFS_DIR}","/home/vire/cloud" ]
 
 
 

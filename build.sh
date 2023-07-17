@@ -3,12 +3,16 @@
 #
 #root check
 if [ $EUID -ne 0 ]; then
-  echo "This script must be run as root (or with sudo)"
+  echo "请用root或者sudo"
   exit 1
 fi
 
 #
-if systemctl status nfs-kernel-server >/dev/null 2>&1; then
+
+# if ! systemctl is-active --quiet nfs-kernel-server; then
+#   echo "NFS服务未安装或未启动"
+#   exit 1
+# fi
 
 echo "输入nfs挂载主机的ip, 例如 192.168.10.8"
 echo "当前脚本用的本机nfs服务所以请保证本机已经安装nfs server服务"
@@ -19,35 +23,40 @@ export NFS_DIR="$(pwd)/cloud"
 
 
 
+
+
+echo "输入节点数量"
+read -r node_num 
+
+
+
 echo "${NFS_DIR} *(rw,sync,no_subtree_check,no_root_squash,insecure)" > ./exports
 cp ./exports /etc/exports
 exportfs -a
 
 
-#build dockerfile
-docker build -t mpi .
+#构建 dockerfile
+docker build -t mpi . 
 
-#create manager host
+#创建 管理主机
 docker run --privileged -itd --name manager mpi
-# TODO 复制例子到docker manger主机
-# TODO 输入ip和主机方便绑定ssh
-# TODO 可以使用普通用户执行
-# TODO 添加IP到hosts
-# TODO 添加ssh-keygen到每个集群主机
-# TODO 设置本机nfs共享
-# TODO 执行需要带上docker run --privileged -itd --name cluster1 mpi
+
+## 创建节点
+while [ "$node_num" -ge 1 ]
+do 
+  echo 创建节点"${node_num}"
+  docker run --user vire --privileged -itd --name "node${node_num}" mpi
+  node_num=$((node_num-1))
+done
 
 
+# 挂载nfs
+docker exec manager mount -t nfs "${NFS_HOST}:${NFS_DIR}" /home/vire/cloud
 
 
+# 生成keygen
+docker exec -u vire manager ssh-keygen -t rsa -f /home/vire/.ssh/id_rsa -N ""
 
-
-# ssh-keygen -t dsa
-
-# docker build -t myimage .
-
-# ssh-copy-id root@cluster1
-else
-  echo "nfs-kernel-server is not running"
-fi
+# 获取所有容器IP
+./pod.sh
 
