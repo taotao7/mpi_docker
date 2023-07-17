@@ -30,8 +30,7 @@ do
 
   # 在管理主机打通ssh
   echo "开始复制公钥到每个子节点"
-  docker exec -u vire manager sshpass -p zxczxc scp /home/vire/.ssh/id_rsa.pub vire@${ip}:/home/vire/.ssh/authorized_keys
-  wait
+  docker exec -u vire manager sshpass -p zxczxc scp -o StrictHostKeyChecking=no /home/vire/.ssh/id_rsa.pub vire@${ip}:/home/vire/.ssh/authorized_keys
 
   # 输出容器的名称和 IP 地址
   echo "$ip $name" >> ./cloud/hosts

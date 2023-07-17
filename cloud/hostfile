@@ -1,2 +1,2 @@
-localost slots=2
-172.17.0.5 slots=2
+localhost slots=2
+172.17.0.4 slots=2

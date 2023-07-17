@@ -9,10 +9,11 @@ LABEL vendor="vire" \
 ENV OMPI_ALLOW_RUN_AS_ROOT=1
 ENV OMPI_ALLOW_RUN_AS_ROOT_CONFIRM=1
 
+RUN useradd -m vire 
 
-RUN  useradd -m vire && \
-  mkdir /home/vire/cloud && \
-  mkdir /home/vire/.ssh
+RUN mkdir /home/vire/cloud && \
+  mkdir /home/vire/.ssh && \ 
+  chown vire:vire /home/vire/.ssh
 
 
 WORKDIR /home/vire
